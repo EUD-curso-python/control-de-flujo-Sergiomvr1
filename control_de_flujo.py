@@ -2,7 +2,13 @@
 """Guarde en lista `naturales` los primeros 100 números naturales (desde el 1) 
 usando el bucle while
 """
+i = 1
+naturales = []
+while i < 101:
+    naturales.append(i)
+    i += 1
 
+#print(naturales)
 
 
 
@@ -14,12 +20,17 @@ Hasta el número 50.
 """
 
 
+ 
+
 
 
 """Guarde en `suma100` el entero de la suma de todos los números entre 1 y 100:
 """
 
-
+suma100 = 0
+for a in naturales:
+  suma100 = a +suma100
+#print(suma100)
 
 
 
@@ -30,7 +41,12 @@ separados por coma, así:
 '134,268,...'
 
 """
-
+tabla100 = []
+i = 1
+while i < 11:
+ tabla100.append(134 * i)
+ i += 1
+#print(tabla100)
 
 
 
@@ -41,8 +57,12 @@ está ordenada).
 """
 lista1 = [12, 15, 20, 27, 32, 39, 42, 48, 55, 66, 75, 82, 89, 91, 93, 105, 123, 132, 150, 180, 201, 203, 231, 250, 260, 267, 300, 304, 310, 312, 321, 326]
 
+multiplos3 = []
+for a in lista1:
+    multiplos3.append( a if a % 3 == 0 and a < 300)
 
 
+print( 'a' if 18 % 3 == 0 else 'b')
 
 
 """Guardar en `regresivo50` una lista con la cuenta regresiva desde el número 
