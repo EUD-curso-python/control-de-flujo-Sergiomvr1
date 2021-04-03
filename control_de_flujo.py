@@ -19,8 +19,15 @@ while i < 101:
 Hasta el número 50.
 """
 
+acumulado1 = []
+acumulado = []
 
- 
+for a in range(2, 52):
+  cadena=''
+  for i in range(1, a):
+    cadena =  cadena + ' ' + str(i)
+  acumulado.append(cadena[1:])
+#print(acumulado) 
 
 
 
@@ -41,13 +48,13 @@ separados por coma, así:
 '134,268,...'
 
 """
-tabla100 = []
-i = 1
-while i < 11:
- tabla100.append(134 * i)
- i += 1
-#print(tabla100)
 
+
+tabla10 = ''
+for i in range(1, 11):
+ tabla10 = tabla10 + ',' + str( i * 134)
+tabla100 = str(tabla10[1:])
+#print(tabla100)
 
 
 
@@ -57,12 +64,11 @@ está ordenada).
 """
 lista1 = [12, 15, 20, 27, 32, 39, 42, 48, 55, 66, 75, 82, 89, 91, 93, 105, 123, 132, 150, 180, 201, 203, 231, 250, 260, 267, 300, 304, 310, 312, 321, 326]
 
-multiplos3 = []
-for a in lista1:
-    multiplos3.append( a if a % 3 == 0 and a < 300)
+lista = [a for a in lista1  if a % 3 == 0 and a < 300]
+multiplos3 = len(lista)
+#print(multiplos3)
 
 
-print( 'a' if 18 % 3 == 0 else 'b')
 
 
 """Guardar en `regresivo50` una lista con la cuenta regresiva desde el número 
@@ -79,26 +85,46 @@ print( 'a' if 18 % 3 == 0 else 'b')
   '1'
 ]
 """
+regresivo50 = []
 
-
-
-
-
+for a in range(50, 0, -1):
+  cadena=''
+  for i in range(a, 0, -1):
+    cadena =  cadena + ' ' + str(i)
+  regresivo50.append(cadena[1:])
+#print(regresivo50)
 
 """Invierta la siguiente lista usando el bucle for y guarde el resultado en 
 `invertido` (sin hacer uso de la función `reversed` ni del método `reverse`)
 """
 lista2 = list(range(1, 70, 5))
+#print(lista2)
 
-
-
-
+invertido = []
+for a in range(71, 0, -5):
+  invertido.append(a)
+invertido = invertido[1:]
+#print(invertido)
 
 """Guardar en `primos` una lista con todos los números primos desde el 37 al 300
 Nota: Un número primo es un número entero que no se puede calcular multiplicando 
 otros números enteros.
 """
 
+primos = []
+numero = 37
+
+while numero <= 300:
+  cont =1
+  x = 0
+  while cont <= numero:
+    if numero % cont ==0:
+      x = x+1
+    cont = cont + 1
+  if x == 2:
+    primos.append(numero)
+  numero = numero + 1
+#print(primos)
 
 
 
@@ -111,8 +137,11 @@ del segundo cada uno se calcula sumando los dos anteriores términos de la serie
 [0, 1, 1, 2, 3, 5, 8, ...]
 
 """
+fibonacci= [0,1]
 
-
+for i in range(2, 60):
+  fibonacci.append(fibonacci[-1] + fibonacci[-2])
+#print(fibonacci)
 
 
 
@@ -124,9 +153,10 @@ Por ejemplo, el factorial de 5 se calcula así:
 
 5! = 5 × 4 × 3 × 2 × 1 = 120
 """
-
-
-
+factorial = 1
+for i in range(1, 31):
+  factorial = factorial * i
+#print(factorial)
 
 
 """Guarde en lista `pares` los elementos de la siguiente lista que esten 
@@ -135,7 +165,12 @@ presentes en posiciones pares, pero solo hasta la posición 80.
 
 lista3 = [941, 149, 672, 208, 99, 562, 749, 947, 251, 750, 889, 596, 836, 742, 512, 19, 674, 142, 272, 773, 859, 598, 898, 930, 119, 107, 798, 447, 348, 402, 33, 678, 460, 144, 168, 290, 929, 254, 233, 563, 48, 249, 890, 871, 484, 265, 831, 694, 366, 499, 271, 123, 870, 986, 449, 894, 347, 346, 519, 969, 242, 57, 985, 250, 490, 93, 999, 373, 355, 466, 416, 937, 214, 707, 834, 126, 698, 268, 217, 406, 334, 285, 429, 130, 393, 396, 936, 572, 688, 765, 404, 970, 159, 98, 545, 412, 629, 361, 70, 602]
 
+pares = []
 
+for a in range(0, 81):
+  if a % 2 == 0:
+    pares.append(lista3[a])
+#print(pares)
 
 
 
@@ -144,13 +179,25 @@ lista3 = [941, 149, 672, 208, 99, 562, 749, 947, 251, 750, 889, 596, 836, 742, 5
 1 al 100. 
 """
 
+cubos = []
 
+for a in range(1, 101):
+  cubos.append(a ** 3)
+#print(cubos)
 
 
 
 """Encuentre la suma de la serie 2 +22 + 222 + 2222 + .. hasta sumar 10 términos 
 y guardar resultado en variable `suma_2s` 
 """
+y= 0
+
+for i in range(0, 11):
+    t = 10 ** i * (10 - i) * 2
+    y = t + y
+suma_2s = y
+#print(suma_2s)
+
 
 
 
@@ -177,6 +224,21 @@ cantidad máxima de asteriscos de 30.
 *
 """
 
+b = '*\n'
+c = '******************************\n'
+y = '*'
+for a in range(2, 30):
+  y= '*'
+  y = y * a
+  b = b + y + '\n'
+print(b)
 
+for a in range(29, 0, -1):
+  y = '*'
+  y = y * a
+  c = c + y + '\n'
+print(c)
 
-
+patron = b + c
+patron = patron[:-1]
+print(patron)
